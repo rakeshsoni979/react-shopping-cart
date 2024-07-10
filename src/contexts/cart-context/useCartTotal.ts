@@ -1,6 +1,14 @@
 import { useCartContext } from './CartContextProvider';
 import { ICartProduct } from 'models';
 
+type CartTotal = {
+  productQuantity: number;
+  installments: number;
+  totalPrice: number;
+  currencyId: string;
+  currencyFormat: string;
+};
+
 const useCartTotal = () => {
   const { total, setTotal } = useCartContext();
 
@@ -27,7 +35,7 @@ const useCartTotal = () => {
       0
     );
 
-    const total = {
+    const total: CartTotal = {
       productQuantity,
       installments,
       totalPrice,
